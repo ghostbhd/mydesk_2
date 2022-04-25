@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:54:28 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/04/25 03:07:05 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/04/25 03:09:51 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_usp(size_t tm)
 	now = gettime();
 	while (1)
 	{
-		usleep(1000);
+		usleep(20);
 		if(gettime() - now >= tm)
 			break ;
 	}
@@ -61,11 +61,11 @@ void	*ft_philo(void *philo)
 		m_msg(p, "has take a fork");
 		m_msg(p, "is eating");
 		p->is_die = gettime();
-		ft_usp(p->d->eat * 1000);
+		usleep(p->d->eat * 1000);
 		pthread_mutex_unlock(p->rfork);
 		pthread_mutex_unlock(p->lfork);
 		m_msg(p, "is sleeping");
-		ft_usp(p->d->sleep * 1000);
+		usleep(p->d->sleep * 1000);
 		m_msg(p, "is thinking");
 	}
 	return (0);
