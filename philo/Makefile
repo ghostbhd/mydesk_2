@@ -1,4 +1,4 @@
-SRCS =	main.c
+SRCS =	main.c utils.c
 
 CC = @cc
 
@@ -10,14 +10,14 @@ AR = @ar -rc
 
 NAME = philo
 
-LIB = src/lib.a
+# LIB = src/lib.a
 
 sanitize = -fsanitize=address && echo "\x1b[36m \n\t-fsanitize=address:\x1b[32m Used\n"
 
 all : $(NAME)
 
 $(NAME) : ${SRCS}
-	${CC} ${CFLAGS} -lmlx -framework OpenGL -framework AppKit $(SRCS) -o $(NAME)
+	${CC} -pthread ${CFLAGS} $(SRCS) -o $(NAME)
 	@echo "\x1b[32m \x1b[1m \n\tMandatory Compele Success\n\t\x1b[0mPrograme name -\x1b[33m ($(NAME))\n\x1b[0m"
 
 clean :
