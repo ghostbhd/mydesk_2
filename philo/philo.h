@@ -6,12 +6,12 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:55:03 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/04/25 01:05:00 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/04/26 20:52:01 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
-#define PHILO_H
+# define PHILO_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -40,10 +40,17 @@ typedef struct s_philo
 	t_data			*d;
 	size_t			np;
 	size_t			is_die;
+	size_t			p_neat;
 }	t_philo;
 
 //utils
-void	ft_error(char *msg);
+void	*m_msg(t_philo *p, char *msg);
 int		ft_atoi(const char *str);
-size_t	gettime();
+void	ft_error(char *msg);
+void	ft_usp(size_t tm);
+size_t	gettime(void);
+
+//fill
+void	ft_data_fill(t_data *data, char **av, int ac);
+void	ft_data_match(t_philo *p, t_data *data);
 #endif

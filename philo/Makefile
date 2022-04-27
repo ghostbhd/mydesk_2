@@ -1,4 +1,4 @@
-SRCS =	main.c utils.c
+SRCS =	main.c utils.c fill.c
 
 CC = @cc
 
