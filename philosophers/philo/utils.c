@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 02:41:23 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/04/26 02:36:05 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:59:15 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ void	ft_usp(size_t tm)
 	size_t	now;
 
 	now = gettime();
-	usleep(tm - 20000);
+	usleep(tm - 10000);
 	while (1)
 	{
 		if (gettime() - now >= tm / 1000)
 			break ;
-		usleep(20);
+		usleep(5);
 	}
 }
 

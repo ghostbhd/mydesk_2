@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:05:50 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/04/26 20:52:57 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:08:01 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	ft_data_fill(t_data *data, char **av, int ac)
 {
 	data->philo = ft_atoi(av[1]);
+	if (data->philo == 0)
+		exit(1);
 	data->die = ft_atoi(av[2]);
 	data->eat = ft_atoi(av[3]);
 	data->sleep = ft_atoi(av[4]);
