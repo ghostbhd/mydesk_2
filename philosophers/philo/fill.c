@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:05:50 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/10 17:08:01 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:42:38 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	ft_data_fill(t_data *data, char **av, int ac)
 	data->neat = 0;
 	if (ac == 6)
 		data->neat = ft_atoi(av[5]);
+	if (ac == 6 && data->neat == 0)
+		exit (1);
 }
 
 void	ft_data_match(t_philo *p, t_data *data)
@@ -39,7 +41,10 @@ void	ft_data_match(t_philo *p, t_data *data)
 	}
 	data->start = gettime();
 	p[0].rfork = &p[0].forks;
-	p[0].lfork = &p[data->philo - 1].forks;
+	if (data->philo > 1)
+		p[0].lfork = &p[data->philo - 1].forks;
+	else
+		p[0].lfork = &p[0].forks;
 	i = 1;
 	while (i < data->philo)
 	{
@@ -49,4 +54,11 @@ void	ft_data_match(t_philo *p, t_data *data)
 		p[i].p_neat = data->neat;
 		i++;
 	}
+}
+
+void	ft_is(t_philo *p)
+{
+	m_msg(p, "is sleeping");
+	ft_usp(p->d->sleep * 1000);
+	m_msg(p, "is thinking");
 }

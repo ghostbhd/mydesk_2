@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:54:28 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/10 17:31:32 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/14 11:43:41 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	*ft_philo(void *philo)
 			return (0);
 		pthread_mutex_lock(p->rfork);
 		m_msg(p, "has take a fork");
+		if (p->rfork == p->lfork)
+			return (0);
 		pthread_mutex_lock(p->lfork);
 		m_msg(p, "has take a fork");
 		m_msg(p, "is eating");
@@ -34,9 +36,7 @@ void	*ft_philo(void *philo)
 		ft_usp(p->d->eat * 1000);
 		pthread_mutex_unlock(p->rfork);
 		pthread_mutex_unlock(p->lfork);
-		m_msg(p, "is sleeping");
-		ft_usp(p->d->sleep * 1000);
-		m_msg(p, "is thinking");
+		ft_is(p);
 	}
 	return (0);
 }
@@ -96,7 +96,6 @@ void	ft_pthreads(t_data *data, t_philo *p)
 		p[i].is_die = gettime();
 		if (pthread_create(&p[i].th, NULL, ft_philo, &p[i]))
 			ft_error("Pthread Create error!!");
-		usleep(100);
 		i++;
 	}
 	if (!check_dieing(data, p))

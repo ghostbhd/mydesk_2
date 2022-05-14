@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:55:03 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/04/26 20:52:01 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:02:50 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	*m_msg(t_philo *p, char *msg);
 int		ft_atoi(const char *str);
 void	ft_error(char *msg);
 void	ft_usp(size_t tm);
+void	ft_is(t_philo *p);
 size_t	gettime(void);
 
 //fill
