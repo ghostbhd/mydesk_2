@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 02:41:23 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/10 17:59:15 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/14 15:07:44 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_usp(size_t tm)
 	{
 		if (gettime() - now >= tm / 1000)
 			break ;
-		usleep(5);
+		usleep(50);
 	}
 }
 

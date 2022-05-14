@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:54:28 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/14 11:52:54 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/14 12:08:45 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	*ft_philo(void *philo)
 			return (0);
 		pthread_mutex_lock(p->lfork);
 		m_msg(p, "has take a fork");
-		m_msg(p, "is eating");
 		p->is_die = gettime();
+		m_msg(p, "is eating");
 		if (p->p_neat > 0)
 			p->p_neat--;
 		ft_usp(p->d->eat * 1000);
