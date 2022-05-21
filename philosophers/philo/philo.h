@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:55:03 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/11 16:02:50 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/21 14:44:15 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,25 @@
 typedef struct s_data
 {
 	pthread_mutex_t	wr;
+	pthread_mutex_t	lock;
 	size_t			eat;
 	size_t			die;
 	size_t			neat;
 	size_t			sleep;
 	size_t			start;
 	size_t			philo;
+	pthread_mutex_t	*forks;
 }	t_data;
 
 typedef struct s_philo
 {
+	t_data			*d;
 	pthread_t		th;
-	pthread_mutex_t	forks;
+	size_t			np;
+	pthread_mutex_t	*wr;
+	pthread_mutex_t	oop;
 	pthread_mutex_t	*rfork;
 	pthread_mutex_t	*lfork;
-	pthread_mutex_t	*wr;
-	t_data			*d;
-	size_t			np;
 	size_t			is_die;
 	size_t			p_neat;
 }	t_philo;
@@ -52,6 +54,6 @@ void	ft_is(t_philo *p);
 size_t	gettime(void);
 
 //fill
-void	ft_data_fill(t_data *data, char **av, int ac);
+int		ft_data_fill(t_data *data, char **av, int ac);
 void	ft_data_match(t_philo *p, t_data *data);
 #endif

@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:54:28 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/14 12:08:45 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/21 14:41:29 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,18 @@ void	*ft_philo(void *philo)
 
 	p = (t_philo *) philo;
 	if (p->np % 2 == 0)
-		usleep(500);
+		usleep(600);
 	while (1)
 	{
 		if (gettime() - p->is_die >= p->d->die)
 			return (0);
-		pthread_mutex_lock(p->rfork);
+		pthread_mutex_lock(p->lfork);
+		printf("L: %p ID: %zu\n", p->lfork, p->np);
 		m_msg(p, "has take a fork");
 		if (p->rfork == p->lfork)
 			return (0);
-		pthread_mutex_lock(p->lfork);
+		pthread_mutex_lock(p->rfork);
+		printf("R: %p ID: %zu\n", p->rfork, p->np);
 		m_msg(p, "has take a fork");
 		p->is_die = gettime();
 		m_msg(p, "is eating");
@@ -35,7 +37,9 @@ void	*ft_philo(void *philo)
 			p->p_neat--;
 		ft_usp(p->d->eat * 1000);
 		pthread_mutex_unlock(p->rfork);
+		printf("Put R: %p ID: %zu\n", p->rfork, p->np);
 		pthread_mutex_unlock(p->lfork);
+		printf("Put L: %p ID: %zu\n", p->lfork, p->np);
 		ft_is(p);
 	}
 	return (0);
@@ -51,7 +55,10 @@ int	check_neat(t_data *data, t_philo *p)
 	if (data->neat > 0)
 	{
 		while (i < data->philo)
-			neat += p[i++].p_neat;
+		{
+			neat += p[i].p_neat;
+			i++;
+		}
 		if (neat == 0)
 		{
 			pthread_mutex_lock(p->wr);
@@ -66,11 +73,8 @@ int	check_dieing(t_data *data, t_philo *p)
 {
 	size_t	i;
 	size_t	time;
-
 	while (1)
 	{
-		if (!check_neat(data, p))
-			return (0);
 		i = 0;
 		while (i < data->philo)
 		{
@@ -83,10 +87,12 @@ int	check_dieing(t_data *data, t_philo *p)
 			}
 			i++;
 		}
+		if (!check_neat(data, p))
+			return (0);
 	}
 }
 
-void	ft_pthreads(t_data *data, t_philo *p)
+int	ft_pthreads(t_data *data, t_philo *p)
 {
 	size_t	i;
 
@@ -95,18 +101,13 @@ void	ft_pthreads(t_data *data, t_philo *p)
 	{
 		p[i].is_die = gettime();
 		if (pthread_create(&p[i].th, NULL, ft_philo, &p[i]))
-			ft_error("Pthread Create error!!");
+			return (1);
+		usleep(100);
 		i++;
 	}
 	if (!check_dieing(data, p))
-		return ;
-	i = 0;
-	while (i < data->philo)
-	{
-		if (pthread_join(p[i].th, NULL))
-			ft_error("Pthread Join error!!");
-		i++;
-	}
+		return (1);
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -118,19 +119,18 @@ int	main(int ac, char **av)
 	data = malloc(sizeof(t_data));
 	if (ac < 5 || ac > 6)
 		ft_error("Arg number error!!");
-	ft_data_fill(data, av, ac);
+	if(!ft_data_fill(data, av, ac))
+		return (1);
 	p = malloc(sizeof(t_philo) * data->philo);
 	if (!p)
 		ft_error("malloc error!!");
-	ft_data_match(p, data);
+	i = 0;
+	while (i++ < data->philo)
+		pthread_mutex_init(&data->forks[i], NULL);
 	pthread_mutex_init(&data->wr, NULL);
-	i = 0;
-	while (i++ < data->philo)
-		pthread_mutex_init(&p[i].forks, NULL);
-	ft_pthreads(data, p);
-	i = 0;
-	while (i++ < data->philo)
-		pthread_mutex_destroy(&p[i].forks);
-	pthread_mutex_destroy(&data->wr);
+	ft_data_match(p, data);
+	data->start = gettime();
+	if (ft_pthreads(data, p))
+		return (1);
 	return (0);
 }
