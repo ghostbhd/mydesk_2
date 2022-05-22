@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:55:03 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/21 14:44:15 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/22 17:30:46 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct s_philo
 	size_t			np;
 	pthread_mutex_t	*wr;
 	pthread_mutex_t	oop;
-	pthread_mutex_t	*rfork;
-	pthread_mutex_t	*lfork;
+	size_t			rfork;
+	size_t			lfork;
 	size_t			is_die;
 	size_t			p_neat;
 }	t_philo;

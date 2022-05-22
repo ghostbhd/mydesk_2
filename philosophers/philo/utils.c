@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 02:41:23 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/21 14:28:58 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/22 18:30:25 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int	ft_atoi(const char *str)
 	{
 		nbr = nbr * 10 + str[i] - 48;
 		if (INT32_MAX < nbr)
-			ft_error("Max error!!");
+			return (printf("MAX int error!!") * -1);
 		i++;
 	}
 	if (str[i] != 0 || str[0] == '\0')
-		ft_error("Number error!!");
+		return (printf("Number error!!") * -1);
 	return (nbr);
 }
 
@@ -55,7 +55,7 @@ void	ft_usp(size_t tm)
 	{
 		if (gettime() - now >= tm / 1000)
 			break ;
-		usleep(100);
+		usleep(300);
 	}
 }
 
