@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:54:28 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/22 18:27:36 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/23 16:58:20 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	*ft_philo(void *philo)
 		if (gettime() - p->is_die >= p->d->die)
 			return (0);
 		pthread_mutex_lock(&p->d->forks[p->rfork]);
-		m_msg(p, "has take a fork");
+		m_msg(p, "has taken a fork");
 		pthread_mutex_lock(&p->d->forks[p->lfork]);
-		m_msg(p, "has take a fork");
+		m_msg(p, "has taken a fork");
 		p->is_die = gettime();
 		m_msg(p, "is eating");
 		if (p->p_neat > 0)
@@ -41,8 +41,8 @@ void	*ft_philo(void *philo)
 
 int	check_neat(t_data *data, t_philo *p)
 {
-	size_t	i;
-	size_t	neat;
+	ssize_t	i;
+	ssize_t	neat;
 
 	i = 0;
 	neat = 0;
@@ -65,8 +65,8 @@ int	check_neat(t_data *data, t_philo *p)
 
 int	check_dieing(t_data *data, t_philo *p)
 {
-	size_t	i;
-	size_t	time;
+	ssize_t	i;
+	ssize_t	time;
 
 	while (1)
 	{
@@ -92,7 +92,7 @@ int	check_dieing(t_data *data, t_philo *p)
 
 int	ft_pthreads(t_data *data, t_philo *p)
 {
-	size_t	i;
+	ssize_t	i;
 
 	i = 0;
 	while (i < data->philo)
@@ -111,7 +111,7 @@ int	main(int ac, char **av)
 {
 	t_data		*data;
 	t_philo		*p;
-	size_t		i;
+	ssize_t		i;
 
 	data = malloc(sizeof(t_data));
 	if (ac < 5 || ac > 6)
@@ -119,15 +119,17 @@ int	main(int ac, char **av)
 	if (ft_data_fill(data, av, ac))
 		return (1);
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->philo);
+	if (!data->forks)
+		return (1);
 	p = malloc(sizeof(t_philo) * data->philo);
 	if (!p)
-		return (printf("malloc error!!"));
+		return (1);
 	i = 0;
 	while (i < data->philo)
 		pthread_mutex_init(&data->forks[i++], NULL);
 	pthread_mutex_init(&data->wr, NULL);
 	ft_data_match(p, data);
 	if (ft_pthreads(data, p))
-		return (printf("Threads error!!"));
+		return (1);
 	return (0);
 }

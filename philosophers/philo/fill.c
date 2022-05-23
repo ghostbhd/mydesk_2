@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:05:50 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/22 18:32:17 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/23 16:42:12 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_data_fill(t_data *data, char **av, int ac)
 
 void	ft_data_match(t_philo *p, t_data *data)
 {
-	size_t	i;
+	ssize_t	i;
 
 	i = 0;
 	data->start = gettime();

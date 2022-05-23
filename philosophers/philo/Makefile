@@ -22,7 +22,7 @@ $(NAME) : ${SRCS}
 
 clean :
 	${RM} ${NAME}
-	@echo "\x1b[31m \x1b[1m \n✅\tDelete [$(NAME)] | \x1b[32mSuccess\n\x1b[0m"
+	@echo "\x1b[31m \x1b[1m \n✅\tDelete [$(NAME)] \x1b[32mSuccess\n\x1b[0m"
 
 fclean : clean
 

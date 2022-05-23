@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:55:03 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/22 17:30:46 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/23 17:26:04 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ typedef struct s_data
 {
 	pthread_mutex_t	wr;
 	pthread_mutex_t	lock;
-	size_t			eat;
-	size_t			die;
-	size_t			neat;
-	size_t			sleep;
-	size_t			start;
-	size_t			philo;
+	ssize_t			eat;
+	ssize_t			die;
+	ssize_t			neat;
+	ssize_t			sleep;
+	ssize_t			start;
+	ssize_t			philo;
 	pthread_mutex_t	*forks;
 }	t_data;
 
@@ -36,22 +36,22 @@ typedef struct s_philo
 {
 	t_data			*d;
 	pthread_t		th;
-	size_t			np;
+	ssize_t			np;
 	pthread_mutex_t	*wr;
 	pthread_mutex_t	oop;
-	size_t			rfork;
-	size_t			lfork;
-	size_t			is_die;
-	size_t			p_neat;
+	ssize_t			rfork;
+	ssize_t			lfork;
+	ssize_t			is_die;
+	ssize_t			p_neat;
 }	t_philo;
 
 //utils
 void	*m_msg(t_philo *p, char *msg);
 int		ft_atoi(const char *str);
-void	ft_error(char *msg);
-void	ft_usp(size_t tm);
+void	ft_usp(ssize_t tm);
 void	ft_is(t_philo *p);
-size_t	gettime(void);
+ssize_t	gettime(void);
+int		ft_check_nbr(int ac, char **av);
 
 //fill
 int		ft_data_fill(t_data *data, char **av, int ac);

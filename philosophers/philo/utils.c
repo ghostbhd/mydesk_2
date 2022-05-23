@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 02:41:23 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/22 18:30:25 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/05/23 16:58:38 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,15 @@ int	ft_atoi(const char *str)
 	{
 		nbr = nbr * 10 + str[i] - 48;
 		if (INT32_MAX < nbr)
-			return (printf("MAX int error!!") * -1);
+			return (-1);
 		i++;
 	}
-	if (str[i] != 0 || str[0] == '\0')
-		return (printf("Number error!!") * -1);
+	if (str[i] != '\0' || str[0] == '\0')
+		return (-1);
 	return (nbr);
 }
 
-void	ft_error(char *msg)
-{
-	printf("%s\n", msg);
-	exit (EXIT_FAILURE);
-}
-
-size_t	gettime(void)
+ssize_t	gettime(void)
 {
 	struct timeval	t;
 
@@ -45,9 +39,9 @@ size_t	gettime(void)
 	return ((t.tv_sec * 1000) + (t.tv_usec / 1000));
 }
 
-void	ft_usp(size_t tm)
+void	ft_usp(ssize_t tm)
 {
-	size_t	now;
+	ssize_t	now;
 
 	now = gettime();
 	usleep(tm - 10000);
@@ -61,7 +55,7 @@ void	ft_usp(size_t tm)
 
 void	*m_msg(t_philo *p, char *msg)
 {
-	size_t	time;
+	ssize_t	time;
 
 	pthread_mutex_lock(p->wr);
 	time = gettime() - p->d->start;
