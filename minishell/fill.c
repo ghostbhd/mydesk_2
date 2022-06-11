@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/11 19:44:45 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:57:12 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void    parsser(char *line, t_put *put, t_token *mini, t_tree tree)
     {
         while(line[i] == ' ' || (9 <= line[i] && line[i] <= 13))
             i++;
+		//if
         j = i;
         i++;
     }
