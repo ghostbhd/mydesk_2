@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/11 13:22:39 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/11 14:38:24 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	main (int ac, char **av)
 {
-	char *str = "cat Makefile | grep \"util\" <infile";
-	
+	char	*line = "  cat Makefile | grep \"util\" <infile";
+	t_put	*put;
+	t_token	*mini;
+	t_tree	*tree;
 	
 	return (0);
 }

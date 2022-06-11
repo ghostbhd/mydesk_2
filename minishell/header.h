@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/11 12:18:00 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/11 14:40:19 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,20 @@ typedef struct s_put
 } t_put;
 
 
-typedef struct s_mini
+typedef struct s_token
 {
-	char			**cmd;
+	char			*cmd;
+	char			**option;
 	t_put			*put;
-	struct s_mini	*next;
-}t_mini;
+	struct s_token	*next;
+}t_token;
 
 typedef struct s_tree
 {
 	char			*content;
 	struct s_tree	*left;
 	struct s_tree	*right;
-};
+}t_tree;
 
 
 #endif
