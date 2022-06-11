@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/08 18:37:49 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/11 12:18:00 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,13 @@ typedef struct s_mini
 	t_put			*put;
 	struct s_mini	*next;
 }t_mini;
+
+typedef struct s_tree
+{
+	char			*content;
+	struct s_tree	*left;
+	struct s_tree	*right;
+};
+
 
 #endif
