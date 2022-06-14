@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/13 22:35:29 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/14 12:33:52 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,27 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-//src ------------------------------------------------------------------
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strrchr(const char *s, int c);
-char	**ft_split(char *str, char c);
-size_t	ft_strlen(const char *s);
-int		ft_atoi(const char *str);
-//----------------------------------------------------------------------
-
 typedef struct s_put
 {
-	int	input;
-	int	output;
-	int	error;
+	int	in;
+	int	out;
+	int	err;
 }t_put;
 
-typedef struct s_token
+typedef struct s_option
+{
+	char			*content;
+	struct s_option	*next;
+} t_option;
+
+
+typedef struct s_list
 {
 	char			*cmd;
-	char			**option;
-	t_put			*put;
+	t_option		*opt;
+	t_put			put;
 	struct s_token	*next;
-}t_token;
+}t_list;
 
 typedef struct s_tree
 {
@@ -47,6 +45,23 @@ typedef struct s_tree
 	struct s_tree	*left;
 	struct s_tree	*right;
 }t_tree;
+
+//src ------------------------------------------------------------------
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strrchr(const char *s, int c);
+char	**ft_split(char *str, char c);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlen(const char *s);
+int		ft_atoi(const char *str);
+//List ****
+t_list	*ft_lstnew(char *content);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstnew(char *content);
+int		ft_lstsize(t_list *lst);
+//----------------------------------------------------------------------
 
 //is function
 int		is_white_space(char c);
