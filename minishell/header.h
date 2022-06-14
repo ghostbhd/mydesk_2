@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/14 12:33:52 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/14 20:00:13 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ int		ft_lstsize(t_list *lst);
 //is function
 int		is_white_space(char c);
 int		is_separate(char c);
+
 
 #endif
