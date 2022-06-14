@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/11 14:40:19 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/13 22:35:29 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ int		ft_atoi(const char *str);
 
 typedef struct s_put
 {
-	int				input;
-	int				output;
-	int				error;
-} t_put;
-
+	int	input;
+	int	output;
+	int	error;
+}t_put;
 
 typedef struct s_token
 {
@@ -49,5 +48,8 @@ typedef struct s_tree
 	struct s_tree	*right;
 }t_tree;
 
+//is function
+int		is_white_space(char c);
+int		is_separate(char c);
 
 #endif

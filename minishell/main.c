@@ -6,18 +6,18 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/11 14:38:24 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/12 18:46:34 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main (int ac, char **av)
+int	main(int ac, char **av)
 {
 	char	*line = "  cat Makefile | grep \"util\" <infile";
 	t_put	*put;
 	t_token	*mini;
 	t_tree	*tree;
-	
+
 	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 21:13:51 by abouhmad          #+#    #+#             */
-/*   Updated: 2021/11/10 11:07:31 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/14 09:10:08 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../header.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

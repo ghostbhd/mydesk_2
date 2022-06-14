@@ -6,17 +6,37 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 21:29:03 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/05/29 18:45:43 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/14 09:10:41 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pipex.h"
+#include "../header.h"
 
 static void	ft_free(char **s, int i)
 {
 	while (i)
 		free(s[i--]);
 	free(s);
+}
+
+char	*ft_strndup(char *s1, int n)
+{
+	char	*str;
+	int		i;
+	int		len;
+
+	len = ft_strlen(s1);
+	str = malloc(n + 1);
+	if (!str)
+		return (0);
+	i = 0;
+	while (i < n)
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	str[i] = 0;
+	return (str);
 }
 
 static int	ft_len(char *s, char c)

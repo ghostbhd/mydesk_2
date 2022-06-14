@@ -6,11 +6,11 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 20:26:39 by abouhmad          #+#    #+#             */
-/*   Updated: 2021/11/08 17:38:13 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/14 09:10:04 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../header.h"
 
 size_t	ft_strlen(const char *s)
 {

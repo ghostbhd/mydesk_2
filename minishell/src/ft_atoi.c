@@ -6,11 +6,11 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 20:15:02 by abouhmad          #+#    #+#             */
-/*   Updated: 2021/11/18 16:22:05 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/14 09:09:34 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../header.h"
 
 static int	ft_signe(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 23:19:29 by abouhmad          #+#    #+#             */
-/*   Updated: 2021/11/13 23:51:51 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/14 09:09:53 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../header.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
