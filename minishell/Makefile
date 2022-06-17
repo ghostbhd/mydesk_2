@@ -17,7 +17,7 @@ all : $(NAME)
 
 $(NAME) : ${SRCS}
 	${CC} ${CFLAGS} $(SRCS) -o $(NAME)
-	@echo "\x1b[32m \x1b[1m \n✅\tMandatory Compele Success\n\t\x1b[0mPrograme name -\x1b[33m ($(NAME))\n\x1b[0m"
+	@echo "\x1b[32m \x1b[1m \n✅\tMandatory Compele Success\n\t\x1b[0mPrograme -\x1b[33m ($(NAME))\n\x1b[0m"
 
 clean :
 	${RM} ${NAME}

@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/14 20:00:13 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/16 18:34:07 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef enum 
+{
+	CMD,
+	PIPE,
+	RED,
+	HERD
+} t_tok;
 
 typedef struct s_put
 {
@@ -33,6 +41,7 @@ typedef struct s_option
 
 typedef struct s_list
 {
+	t_tok			*token;
 	char			*cmd;
 	t_option		*opt;
 	t_put			put;
@@ -47,6 +56,7 @@ typedef struct s_tree
 }t_tree;
 
 //src ------------------------------------------------------------------
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strrchr(const char *s, int c);
@@ -55,9 +65,9 @@ char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *str);
 //List ****
-t_list	*ft_lstnew(char *content);
-void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ft_lstnew(char *content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(char *content);
 int		ft_lstsize(t_list *lst);
