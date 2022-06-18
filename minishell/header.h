@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/16 18:34:07 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/18 16:07:07 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ typedef enum
 {
 	CMD,
 	PIPE,
-	RED,
+	RED_IN,
+	RED_OUT,
+	APPEND,
 	HERD
 } t_tok;
 
@@ -45,7 +47,7 @@ typedef struct s_list
 	char			*cmd;
 	t_option		*opt;
 	t_put			put;
-	struct s_token	*next;
+	struct s_list	*next;
 }t_list;
 
 typedef struct s_tree
