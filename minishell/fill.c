@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/16 17:20:16 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/19 19:58:00 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	parsser(char *line, t_list *mini, t_tree tree)
 	j = 0;
 	while (line[i])
 	{
-		while (is_white_space(line[i]))
+		while (is_white_space(line[i]) && line[i])
 			i++;
 		j = i;
 		while (!is_separate(line[i]))
@@ -40,3 +40,22 @@ char	*get_text(char *line, int start)
 
 	flag = 0;
 }
+
+
+/* struct fill
+{
+	int i;
+	char *cont;
+	char c;	
+	int str_len;
+
+};
+
+struct fill
+{
+	cont
+	ar 
+	type
+}; */
+
+

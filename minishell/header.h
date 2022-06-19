@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/18 16:07:07 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/19 17:13:02 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,17 @@ typedef struct s_put
 	int	err;
 }t_put;
 
-typedef struct s_option
+typedef struct s_cmd
 {
 	char			*content;
-	struct s_option	*next;
-} t_option;
+	struct s_cmd	*next;
+} t_cmd;
 
 
 typedef struct s_list
 {
 	t_tok			*token;
-	char			*cmd;
-	t_option		*opt;
-	t_put			put;
+	t_cmd			*cmd;
 	struct s_list	*next;
 }t_list;
 
