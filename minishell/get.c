@@ -6,9 +6,21 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/16 18:40:45 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:05:51 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
+
+int *get_cmd(char *line, int start, t_list **mini)
+{
+	int i;
+
+	i = 0;
+    if (line[start] == '|')
+    {
+        
+    }
+        
+}

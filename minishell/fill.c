@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/19 19:58:00 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:06:43 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,14 @@ void	parsser(char *line, t_list *mini, t_tree tree)
 		while (is_white_space(line[i]) && line[i])
 			i++;
 		j = i;
-		while (!is_separate(line[i]))
-			i++;
+		if (is_separate(line[i]))
+			get_cmd(line, i, &mini);
 		if (i > j)
-			mini->cmd = ft_substr(line, j, i + 1);
+			mini->cmd = ft_substr(line, j, i + 1 - j);
 		i++;
 	}
 }
 
-char	*get_text(char *line, int start)
-{
-	int	flag;
-
-	flag = 0;
-}
 
 
 /* struct fill

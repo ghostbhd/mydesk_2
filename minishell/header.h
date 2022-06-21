@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/19 17:13:02 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/21 17:35:48 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,27 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strrchr(const char *s, int c);
 char	**ft_split(char *str, char c);
+char	*ft_strndup(char *s1, int n);
 char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *str);
-//List ****
+
+//List *****************
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstnew(char *content);
+t_list	*ft_lstnew(t_tok *token, t_cmd *cmd);
 t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstnew(char *content);
 int		ft_lstsize(t_list *lst);
+//List > cmd ______
+t_cmd *ft_cmdnew(char *content);
 //----------------------------------------------------------------------
 
 //is function
 int		is_white_space(char c);
 int		is_separate(char c);
 
-
+//get function
+int		*get_cmd(char *line, int start, t_list **mini);
+void	ft_cmdadd_back(t_cmd **lst, t_cmd *new);
+t_cmd	*ft_cmdlast(t_cmd *lst);
 #endif
