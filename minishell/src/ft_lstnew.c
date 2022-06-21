@@ -6,13 +6,13 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:36:26 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/21 16:49:13 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:11:53 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-t_list	*ft_lstnew(t_tok *token, t_cmd *cmd)
+t_list	*ft_lstnew(int token, t_cmd *cmd)
 {
 	t_list	*p;
 

@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/21 17:35:48 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:11:36 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct s_cmd
 	struct s_cmd	*next;
 } t_cmd;
 
-
 typedef struct s_list
 {
 	t_tok			*token;
@@ -69,7 +68,7 @@ int		ft_atoi(const char *str);
 //List *****************
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstnew(t_tok *token, t_cmd *cmd);
+t_list	*ft_lstnew(int token, t_cmd *cmd);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 //List > cmd ______

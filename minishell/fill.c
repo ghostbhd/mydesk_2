@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/21 16:06:43 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:01:48 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	parsser(char *line, t_list *mini, t_tree tree)
 			i++;
 		j = i;
 		if (is_separate(line[i]))
-			get_cmd(line, i, &mini);
+			i = get_cmd(line, i, &mini);
 		if (i > j)
 			mini->cmd = ft_substr(line, j, i + 1 - j);
 		i++;
