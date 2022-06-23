@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/23 19:43:12 by abouhmad         ###   ########.fr       */
+/*   Created: 2021/11/06 20:22:50 by abouhmad          #+#    #+#             */
+/*   Updated: 2022/06/23 19:38:29 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../header.h"
 
-int	main(int ac, char **av)
+void	ft_bzero(void *s, size_t n)
 {
-	char	*line = "  cat Makefile | grep \"util\" <infile";
-	t_list	*mini;
-	t_tree	*tree;
+	size_t	i;
+	char	*tab;
 
-	mini = ft_lstnew(1, 0);
-	mini->cmd = ft_cmdnew(ft_strdup("hell")) ;
-	ft_cmdadd_back(&mini->cmd, ft_cmdnew(ft_substr(line, 6, 8)));
-	printf("%d\n", ft_cmdsize(mini->cmd));
-	while (mini->cmd)
+	tab = (char *) s;
+	i = 0;
+	while (i < n)
 	{
-		printf("%s\n", mini->cmd->content);
-		mini->cmd = mini->cmd->next;
+		tab[i] = '\0';
+		i++;
 	}
-	
-	return (0);
 }

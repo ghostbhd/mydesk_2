@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/21 18:11:36 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/23 19:44:49 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef enum 
+typedef enum
 {
 	CMD,
 	PIPE,
@@ -42,7 +42,7 @@ typedef struct s_cmd
 
 typedef struct s_list
 {
-	t_tok			*token;
+	t_tok			token;
 	t_cmd			*cmd;
 	struct s_list	*next;
 }t_list;
@@ -57,10 +57,13 @@ typedef struct s_tree
 //src ------------------------------------------------------------------
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
+void	*ft_calloc(size_t count, size_t size);
 char	*ft_strrchr(const char *s, int c);
 char	**ft_split(char *str, char c);
 char	*ft_strndup(char *s1, int n);
+void	ft_bzero(void *s, size_t n);
 char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *str);
@@ -72,7 +75,9 @@ t_list	*ft_lstnew(int token, t_cmd *cmd);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 //List > cmd ______
+void	ft_cmdadd_back(t_cmd **lst, t_cmd *new);
 t_cmd *ft_cmdnew(char *content);
+int	ft_cmdsize(t_cmd *lst);
 //----------------------------------------------------------------------
 
 //is function
