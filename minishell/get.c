@@ -6,14 +6,14 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/21 18:16:19 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/24 21:05:56 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 
-int *get_cmd(char *line, int start, t_list **mini)
+int get_cmd(char *line, int start, t_list **mini)
 {
 	int i;
     char    check;
@@ -30,4 +30,13 @@ int *get_cmd(char *line, int start, t_list **mini)
     {
         //get text;
     }
+}
+
+int	get_text(char *line, int start, t_list **mini, char check)
+{
+	int	i;
+	
+	while (line[start + i] != check)
+		i++;
+	if (line[start + i] )
 }
