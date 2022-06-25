@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:29:19 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/21 16:50:25 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/25 22:40:53 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,10 @@ int	is_separate(char c)
 	if ((c == '<') || (c == '>') || (c = '|') || (c == '"') || (c == '\''))
 		return (1);
 	return (0);
+}
+
+void	ft_error(char *msg)
+{
+	printf ("%s\n", msg);
+	exit(1);
 }

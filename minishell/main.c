@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/23 19:43:12 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/25 23:30:24 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	main(int ac, char **av)
 	t_tree	*tree;
 
 	mini = ft_lstnew(1, 0);
-	mini->cmd = ft_cmdnew(ft_strdup("hell")) ;
-	ft_cmdadd_back(&mini->cmd, ft_cmdnew(ft_substr(line, 6, 8)));
+	mini->cmd = ft_cmdnew("hellooooooo") ;
+	ft_cmdadd_back(&mini->cmd, ft_cmdnew("me"));
 	printf("%d\n", ft_cmdsize(mini->cmd));
 	while (mini->cmd)
 	{

@@ -6,14 +6,14 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/21 18:01:48 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/25 23:28:51 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 //  | ," ,< ,<< ,> ,>>
-void	parsser(char *line, t_list *mini, t_tree tree)
+void	parsser(char *line, t_list **mini, t_tree tree)
 {
 	int	i;
 	int	j;
@@ -27,9 +27,9 @@ void	parsser(char *line, t_list *mini, t_tree tree)
 			i++;
 		j = i;
 		if (is_separate(line[i]))
-			i = get_cmd(line, i, &mini);
+			i = get_cmd(line, i, mini);
 		if (i > j)
-			mini->cmd = ft_substr(line, j, i + 1 - j);
+			(*mini)->cmd = ft_substr(line, j, i + 1 - j);
 		i++;
 	}
 }

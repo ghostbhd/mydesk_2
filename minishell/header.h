@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/24 21:09:52 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/25 22:42:11 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,17 @@ t_cmd *ft_cmdnew(char *content);
 int	ft_cmdsize(t_cmd *lst);
 //----------------------------------------------------------------------
 
-//is function
+//is functions
 int		is_white_space(char c);
 int		is_separate(char c);
 
-//get function
+//get functions
 int		get_cmd(char *line, int start, t_list **mini);
 void	ft_cmdadd_back(t_cmd **lst, t_cmd *new);
 t_cmd	*ft_cmdlast(t_cmd *lst);
+
+//Utils functions
+void	ft_error(char *msg);
+
 
 #endif
