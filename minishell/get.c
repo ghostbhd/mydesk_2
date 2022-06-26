@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/25 23:44:25 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/27 00:31:34 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,26 @@ int	get_text(char *line, int start, t_list **mini, char check)
 		i++;
 	if (line[start + i] == check)
     {
-        ft_cmdadd_back(&(*mini)->cmd, ft_cmdnew(ft_substr(line, start, i)));
-        return (start + i + 1);
+		ft_cmdadd_back(&(*mini)->cmd, ft_cmdnew(ft_substr(line, start, i)));
+		return (start + i + 1);
     }
-    else
-        ft_error("bash: syntax error: unexpected end of file");
+	else
+		ft_error("bash: syntax error");
 }
 
 int get_cmd(char *line, int start, t_list **mini)
 {
-	int i;
-    char    check;
-
+	int		i;
+	char	check;
+	
 	i = 0;
-    check = line[start];
-    if (check == '|')
-    {
-        ft_lstadd_back(mini, ft_lstnew(PIPE, 0));
-        ft_lstlast(*mini)->cmd = ft_cmdnew("|");
-        return (start + 1);
-    }
-    else if (check == '"' || check == '\'')
-        start = get_text(line, start + 1, mini, check);
+	check = line[start];
+	if (check == '|')
+	{
+		ft_lstadd_back(mini, ft_lstnew(PIPE, 0));
+		ft_lstlast(*mini)->cmd = ft_cmdnew("|");
+		return (start + 1);
+	}
+	else if (check == '"' || check == '\'')
+		start = get_text(line, start + 1, mini, check);
 }
