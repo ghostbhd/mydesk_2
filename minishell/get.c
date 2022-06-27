@@ -6,12 +6,13 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/27 00:31:34 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/27 20:10:21 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
+//get text
 int	get_text(char *line, int start, t_list **mini, char check)
 {
 	int	i;
@@ -27,6 +28,17 @@ int	get_text(char *line, int start, t_list **mini, char check)
 		ft_error("bash: syntax error");
 }
 
+//get file
+int	get_file(char *line, int start, t_list **mini)
+{
+	int	i;
+
+	i = 0;
+	while (!ft_isalpha(line[start + i]))
+		i++;
+}
+
+//get command
 int get_cmd(char *line, int start, t_list **mini)
 {
 	int		i;
@@ -41,5 +53,13 @@ int get_cmd(char *line, int start, t_list **mini)
 		return (start + 1);
 	}
 	else if (check == '"' || check == '\'')
+	{
 		start = get_text(line, start + 1, mini, check);
+		return (start);
+	}
+	else if ( check == '<' || '>')
+	{
+		//get_file;
+	}
+	
 }

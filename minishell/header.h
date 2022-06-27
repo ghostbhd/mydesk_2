@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/27 00:30:49 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/27 20:08:19 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef enum
 	RED_IN,
 	RED_OUT,
 	APPEND,
-	HERD
+	HERD,
+	ERROR
 } t_tok;
 
 typedef struct s_put
@@ -67,6 +68,7 @@ void	ft_bzero(void *s, size_t n);
 char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *str);
+int		ft_isalpha(int c);
 
 //List *****************
 void	ft_lstadd_front(t_list **lst, t_list *new);
