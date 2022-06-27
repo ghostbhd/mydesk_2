@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/27 20:10:21 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:27:52 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	get_text(char *line, int start, t_list **mini, char check)
 }
 
 //get file
-int	get_file(char *line, int start, t_list **mini)
+int	get_file(char *line, int start, t_list **mini, char check)
 {
 	int	i;
 
 	i = 0;
-	while (!ft_isalpha(line[start + i]))
+	while ()
 		i++;
 }
 
