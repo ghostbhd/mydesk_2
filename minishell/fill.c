@@ -6,13 +6,13 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/27 20:12:12 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/29 23:40:05 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-//  | ," ,< ,<< ,> ,>>
+//  |  '  "  <  >  <<  >>
 void	parsser(char *line, t_list **mini)
 {
 	int	i;
