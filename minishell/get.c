@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/30 16:50:28 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/30 18:18:20 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,12 @@ int	get_file(char *line, int start, t_list **mini, char check)
 		start = i;
 		while (!is_separate(line[i]) && !is_white_space(line[i]) && line[i])
 			i++;
-		ft_lstadd_back(mini, ft_lstnew(0, ft_substr(line, start, i - start)));
+		ft_lstlast(*mini)->cmd = ft_substr(line, start, i - start);
 	}
+	else if (line[i] == '\'' || line[i] == '"')
+		i = get_text(line, i, mini, line[i]);
+	else
+		ft_lstlast(*mini)->token = ERROR;
 }
 
 //get command ---------------------------------------------------------
