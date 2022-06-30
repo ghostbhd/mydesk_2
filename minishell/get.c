@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/30 01:02:54 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:38:13 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	get_text(char *line, int start, t_list **mini, char check)
 }
 
 //get file -----------------------------------------------------------
-int	get_file(char *line, int start, t_list **mini)
+int	get_file(char *line, int start, t_list **mini, char check)
 {
 	int	i;
 
@@ -68,9 +68,9 @@ int get_cmd(char *line, int start, t_list **mini)
 	{
 		//get_file;
 		if (line[start + 1] == check)
-			start = get_file(line, start + 2, mini);
+			start = get_file(line, start + 2, mini, check);
 		else
-			start = get_file(line, start + 1, mini);
+			start = get_file(line, start + 1, mini, check);
 	}
 	
 }
