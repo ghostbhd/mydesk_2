@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/29 23:56:41 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/30 01:02:54 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	get_file(char *line, int start, t_list **mini)
 		start = i;
 		while (!is_separate(line[i]) && !is_white_space(line[i]) && line[i])
 			i++;
+		ft_lstadd_back(mini, ft_lstnew(0, ft_substr(line, start, i - start)));
 	}
 }
 
@@ -63,7 +64,7 @@ int get_cmd(char *line, int start, t_list **mini)
 		start = get_text(line, start + 1, mini, check);
 		return (start);
 	}
-	else if ( check == '<' || '>')
+	else if ( check == '<' || check == '>')
 	{
 		//get_file;
 		if (line[start + 1] == check)

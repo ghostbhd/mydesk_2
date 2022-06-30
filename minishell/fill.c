@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/29 23:40:05 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/30 01:06:34 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	parsser(char *line, t_list **mini)
 		j = i;
 		if (is_separate(line[i]))
 			i = get_cmd(line, i, mini);
-		if (i > j)
-			(*mini)->cmd = ft_substr(line, j, i + 1 - j);
+		else if (line[i])
+			i = get_file(line, i );
 		i++;
 	}
 }
