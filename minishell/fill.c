@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/02 16:08:18 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/02 16:23:17 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 //  |  '  "  <  >  <<  >>
 void	fill_env(t_env **list_env, char **env)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	**split;
 	
 	i = 0;
 	while (env[i])
 	{
+		split = ft_split(env[i], '=');
 		
 	}
 }
