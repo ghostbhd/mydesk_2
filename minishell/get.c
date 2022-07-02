@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/30 18:18:20 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/06/30 20:06:49 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ int	get_text(char *line, int start, t_list **mini, char check)
 }
 
 //get file -----------------------------------------------------------
-int	get_file(char *line, int start, t_list **mini, char check)
-{
-	int	i;
 
-	i = start;
+void	ft_redi(char *line, int i, t_list **mini, char check)
+{
 	if (line[i - 1] == check && line[i - 2] == check)
 	{
 		if (check == '<')
@@ -49,6 +47,13 @@ int	get_file(char *line, int start, t_list **mini, char check)
 		else
 			ft_lstadd_back(mini, ft_lstnew(RED_OUT, 0));
 	}
+}
+int	get_file(char *line, int start, t_list **mini, char check)
+{
+	int	i;
+
+	i = start;
+	ft_redi(line, i, mini, check);
 	while (is_white_space(line[i]) && line[i])
 		i++;
 	if (!is_separate(line[i]) && line[i])
@@ -62,15 +67,14 @@ int	get_file(char *line, int start, t_list **mini, char check)
 		i = get_text(line, i, mini, line[i]);
 	else
 		ft_lstlast(*mini)->token = ERROR;
+	return (i);
 }
 
 //get command ---------------------------------------------------------
 int get_cmd(char *line, int start, t_list **mini)
 {
-	int		i;
 	char	check;
-	
-	i = 0;
+
 	check = line[start];
 	if (check == '|')
 	{
