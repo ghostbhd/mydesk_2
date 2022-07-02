@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/02 01:52:06 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/02 16:18:03 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ typedef struct s_list
 	struct s_list	*next;
 }t_list;
 
+typedef struct s_env
+{
+	char			*key;
+	char			*value;
+	struct s_env	*next;
+}t_env;
+
 typedef struct s_tree
 {
 	char			*content;
@@ -79,8 +86,13 @@ t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 //List > cmd ______
 void	ft_cmdadd_back(t_cmd **lst, t_cmd *new);
-t_cmd *ft_cmdnew(char *content);
-int	ft_cmdsize(t_cmd *lst);
+t_cmd	*ft_cmdnew(char *content);
+int		ft_cmdsize(t_cmd *lst);
+//List > env
+void	ft_envadd_back(t_env **lst, t_env *new);
+t_env	*ft_envlast(t_env *lst);
+int		ft_envsize(t_env *lst);
+t_env	*ft_envnew(char *key, char *value);
 //----------------------------------------------------------------------
 
 //is functions

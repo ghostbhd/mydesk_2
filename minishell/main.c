@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/01 21:11:21 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/02 16:04:30 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ int	main(int ac, char **av)
 {
 	char	*line = "  cat Makefile | grep \"util\" <infile";
 	t_list	*mini;
-	t_tree	*tree;
+	t_env	*list_env;
 
+	
 	mini = ft_lstnew(PIPE, 0);
 	mini->cmd = ft_cmdnew("hellooooooo");
 	ft_cmdadd_back(&mini->cmd, ft_cmdnew("bro"));

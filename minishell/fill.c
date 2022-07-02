@@ -6,13 +6,24 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/02 01:54:56 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/02 16:08:18 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 //  |  '  "  <  >  <<  >>
+void	fill_env(t_env **list_env, char **env)
+{
+	int	i;
+	
+	i = 0;
+	while (env[i])
+	{
+		
+	}
+}
+
 void	parsser(char *line, t_list **mini)
 {
 	int	i;
@@ -32,6 +43,13 @@ void	parsser(char *line, t_list **mini)
 			i = get_file(line, i );
 		i++;
 	}
+}
+
+char	get_env_value(char *key, char *line)
+{
+	int	i;
+
+	
 }
 
 void	ft_dollar(char *line)
@@ -63,6 +81,7 @@ void	ft_dollar(char *line)
 		}
 	}
 }
+
 
 /* struct fill
 {

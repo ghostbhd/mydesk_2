@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:36:26 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/21 18:11:53 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/02 16:17:57 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ t_cmd *ft_cmdnew(char *content)
 	if (!p)
 		return (0);
 	p->content = content;
+	p->next = 0;
+	return (p);
+}
+
+t_env	*ft_envnew(char *key, char *value)
+{
+	t_env	*p;
+	p = malloc (sizeof(t_env));
+	if (!p)
+		return (0);
+	p->key = key;
+	p->value = value;
 	p->next = 0;
 	return (p);
 }

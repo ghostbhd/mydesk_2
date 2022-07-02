@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 16:39:22 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/23 19:28:26 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/02 16:14:08 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,19 @@ int	ft_lstsize(t_list *lst)
 }
 
 int	ft_cmdsize(t_cmd *lst)
+{
+	size_t	sz;
+
+	sz = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		sz++;
+	}
+	return (sz);
+}
+
+int	ft_envsize(t_env *lst)
 {
 	size_t	sz;
 
