@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/06/30 20:06:49 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:25:47 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ft_redi(char *line, int i, t_list **mini, char check)
 			ft_lstadd_back(mini, ft_lstnew(RED_OUT, 0));
 	}
 }
+
 int	get_file(char *line, int start, t_list **mini, char check)
 {
 	int	i;

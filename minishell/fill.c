@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/02 16:23:17 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:14:03 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,18 @@ void	fill_env(t_env **list_env, char **env)
 	i = 0;
 	while (env[i])
 	{
-		split = ft_split(env[i], '=');
-		
+		j = 0;
+		while (env[i][j])
+		{
+			if (env[i][j] == '=')
+			{
+				ft_envadd_back(list_env, ft_envnew(ft_substr\
+				(env[i], 0, j), ft_strdup(env[i] + j + 1)));
+				break ;
+			}
+			j++;
+		}
+		i++;
 	}
 }
 
@@ -65,9 +75,21 @@ void	ft_dollar(char *line)
 	{
 		while (is_white_space(line[i]) && line[i])
 			i++;
-		if (line[i] == '\'')
+		if (line[i] == '"')
 		{
-			while (line[i] != '\'')
+			while (line[i] != '"' && line[i])
+			{
+				if (line[i] == '$')
+				{
+					j = i;
+					
+				}
+			}
+			
+		}
+		else if (line[i] == '\'')
+		{
+			while (line[i] != '\'' && line[i])
 				i++;
 			i++;
 		}

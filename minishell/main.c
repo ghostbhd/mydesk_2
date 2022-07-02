@@ -6,13 +6,13 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/02 16:04:30 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:12:35 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main(int ac, char **av)
+int	main(int ac, char **av, char **env)
 {
 	char	*line = "  cat Makefile | grep \"util\" <infile";
 	t_list	*mini;
