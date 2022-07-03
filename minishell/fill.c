@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/02 22:14:03 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/03 02:46:39 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,46 +65,12 @@ char	get_env_value(char *key, char *line)
 	
 }
 
-void	ft_dollar(char *line)
+int	ft_dollar(char *line, int start, t_list **mini)
 {
 	int	i;
-	int	j;
 
-	i = 0;
-	while (line[i])
-	{
-		while (is_white_space(line[i]) && line[i])
-			i++;
-		if (line[i] == '"')
-		{
-			while (line[i] != '"' && line[i])
-			{
-				if (line[i] == '$')
-				{
-					j = i;
-					
-				}
-			}
-			
-		}
-		else if (line[i] == '\'')
-		{
-			while (line[i] != '\'' && line[i])
-				i++;
-			i++;
-		}
-		else if (line[i] == '$')
-		{
-			j = i + 1;
-			if (ft_isalpha(line[i + 1]) || line[i + 1] == '_')
-			{
-				i++;
-				while (ft_isalnum(line[i]) || line[i] == '_')
-					i++;
-				
-			}
-		}
-	}
+	i == start;
+	if ()
 }
 
 
