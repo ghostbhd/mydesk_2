@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/03 02:46:39 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/03 02:57:10 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,13 @@ int	ft_dollar(char *line, int start, t_list **mini)
 {
 	int	i;
 
-	i == start;
-	if ()
+	i == start + 1;
+	if (ft_isalpha(line[i]) || line[i] == '_')
+	{
+		while ((ft_isalnum(line[i]) || line[i]) == '_' && line[i])
+			i++;
+		
+	}
 }
 
 
