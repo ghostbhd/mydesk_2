@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/06 22:07:50 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/06 23:06:23 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ int		ft_isalnum(int c);
 
 //List *****************
 void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int token, t_cmd *cmd);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 //List > cmd ______
-void	ft_cmdadd_back(t_cmd **lst, t_cmd *new);
+void	ft_cmdadd(t_cmd **lst, t_cmd *new);
 t_cmd	*ft_cmdnew(char *content);
 int		ft_cmdsize(t_cmd *lst);
 //List > env
@@ -94,7 +94,10 @@ int		is_separate(char c);
 
 //get functions
 int		get_cmd(char *line, int start, t_list **mini, t_env *envlst);
-void	ft_cmdadd_back(t_cmd **lst, t_cmd *new);
+int		get_file(char *line, int start, t_list **mini, char check);
+int		get_text(char *line, int start, t_list **mini, char check);
+void	ft_redi(char *line, int i, t_list **mini, char check);
+void	ft_cmdadd(t_cmd **lst, t_cmd *new);
 t_cmd	*ft_cmdlast(t_cmd *lst);
 
 //Utils functions

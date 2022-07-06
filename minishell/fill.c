@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/03 17:18:06 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/06 23:02:48 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,35 @@ void	fill_env(t_env **envlst, char **env)
 	}
 }
 
+int	add_cmd(char *line, t_list **mini, int start)
+{
+	int	i;
+	int j;
+
+	i = start;
+	j = start;
+	while (!is_white_space(line[i]) && !is_separate(line[i]) && line[i])
+		i++;
+	if (ft_lstlast(*mini)->token == CMD)
+		ft_cmdadd((*mini)->cmd, ft_cmdnew(ft_substr(line, j, i - j)));
+	else
+		ft_lstadd(mini, ft_lstnew(CMD, ft_cmdnew(ft_substr(line, j, i - j))));
+	return (i);
+}
+
 void	parsser(char *line, t_list **mini, t_env *envlst)
 {
 	int	i;
-	int	j;
-	int	flag;
 
 	i = 0;
-	j = 0;
 	while (line[i])
 	{
 		while (is_white_space(line[i]) && line[i])
 			i++;
-		j = i;
 		if (is_separate(line[i]))
-			i = get_cmd(line, i, mini);
+			i = get_cmd(line, i, mini, envlst);
 		else if (line[i])
-			i = get_file(line, i );
-		i++;
+			i = add_cmd(line, mini, i);
 	}
 }
 
@@ -68,13 +79,13 @@ void	get_evalue(int choix, char *key, t_list **mini, t_env *envlst)
 	{
 		if (!ft_strncmp(key, tmp->key, ft_strlen(key)))
 		{
-			ft_cmdadd_back(&(*mini)->cmd, ft_cmdnew(ft_strdup(tmp->value)));
+			ft_cmdadd(&(*mini)->cmd, ft_cmdnew(ft_strdup(tmp->value)));
 			return ;
 		}
 		tmp = tmp->next;
 	}
 	if (choix)
-		ft_cmdadd_back(&(*mini)->cmd, ft_cmdnew(ft_strdup("")));
+		ft_cmdadd(&(*mini)->cmd, ft_cmdnew(ft_strdup("")));
 }
 
 int	ft_dollar(char *line, int start, t_list **mini, t_env *envlst)
@@ -97,22 +108,3 @@ int	ft_dollar(char *line, int start, t_list **mini, t_env *envlst)
 			get_evalue(0, ft_substr(line, start + 1, i - start - 1), mini, envlst);
 	}
 }
-
-
-/* struct fill
-{
-	int i;
-	char *cont;
-	char c;	
-	int str_len;
-
-};
-
-struct fill
-{
-	cont
-	ar 
-	type
-}; */
-
-

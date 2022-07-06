@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/06 22:07:52 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/06 23:03:55 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	get_text(char *line, int start, t_list **mini, char check)
 		i++;
 	if (line[i] == check)
     {
-		ft_cmdadd_back(&(*mini)->cmd, ft_cmdnew(ft_substr(line, start, i)));
+		ft_cmdadd(&(*mini)->cmd, ft_cmdnew(ft_substr(line, start, i)));
 		return (i + 1);
     }
 	else
@@ -36,16 +36,16 @@ void	ft_redi(char *line, int i, t_list **mini, char check)
 	if (line[i - 1] == check && line[i - 2] == check)
 	{
 		if (check == '<')
-			ft_lstadd_back(mini, ft_lstnew(HERD, 0));
+			ft_lstadd(mini, ft_lstnew(HERD, 0));
 		else
-			ft_lstadd_back(mini, ft_lstnew(APPEND, 0));
+			ft_lstadd(mini, ft_lstnew(APPEND, 0));
 	}
 	else
 	{
 		if (check == '<')
-			ft_lstadd_back(mini, ft_lstnew(RED_IN, 0));
+			ft_lstadd(mini, ft_lstnew(RED_IN, 0));
 		else
-			ft_lstadd_back(mini, ft_lstnew(RED_OUT, 0));
+			ft_lstadd(mini, ft_lstnew(RED_OUT, 0));
 	}
 }
 
@@ -79,7 +79,7 @@ int get_cmd(char *line, int start, t_list **mini, t_env *envlst)
 	check = line[start];
 	if (check == '|')
 	{
-		ft_lstadd_back(mini, ft_lstnew(PIPE, ft_cmdnew(ft_strdup("|"))));
+		ft_lstadd(mini, ft_lstnew(PIPE, ft_cmdnew(ft_strdup("|"))));
 		start++;
 	}
 	else if (check == '"' || check == '\'')
@@ -90,10 +90,6 @@ int get_cmd(char *line, int start, t_list **mini, t_env *envlst)
 			start = get_file(line, start + 2, mini, check);
 		else
 			start = get_file(line, start + 1, mini, check);
-	}
-	else if (check == '$')
-	{
-		
 	}
 	return (start);
 }
