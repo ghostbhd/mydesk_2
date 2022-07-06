@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/06 19:54:06 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/06 22:07:50 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		is_white_space(char c);
 int		is_separate(char c);
 
 //get functions
-int		get_cmd(char *line, int start, t_list **mini);
+int		get_cmd(char *line, int start, t_list **mini, t_env *envlst);
 void	ft_cmdadd_back(t_cmd **lst, t_cmd *new);
 t_cmd	*ft_cmdlast(t_cmd *lst);
 
