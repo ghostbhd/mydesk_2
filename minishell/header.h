@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/03 02:54:16 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/06 19:51:48 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef enum
+enum
 {
 	CMD,
 	PIPE,
@@ -26,14 +26,7 @@ typedef enum
 	APPEND,
 	HERD,
 	ERROR
-} t_tok;
-
-typedef struct s_put
-{
-	int	in;
-	int	out;
-	int	err;
-}t_put;
+};
 
 typedef struct s_cmd
 {
@@ -43,7 +36,7 @@ typedef struct s_cmd
 
 typedef struct s_list
 {
-	t_tok			token;
+	int				token;
 	t_cmd			*cmd;
 	struct s_list	*next;
 }t_list;

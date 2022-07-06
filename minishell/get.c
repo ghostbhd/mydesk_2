@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/03 02:40:26 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/03 15:43:49 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	get_file(char *line, int start, t_list **mini, char check)
 }
 
 //get command ---------------------------------------------------------
-int get_cmd(char *line, int start, t_list **mini)
+int get_cmd(char *line, int start, t_list **mini, t_env *envlst)
 {
 	char	check;
 

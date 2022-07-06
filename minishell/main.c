@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/02 22:12:35 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/03 15:43:01 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av, char **env)
 {
 	char	*line = "  cat Makefile | grep \"util\" <infile";
 	t_list	*mini;
-	t_env	*list_env;
+	t_env	*envlst;
 
 	
 	mini = ft_lstnew(PIPE, 0);
