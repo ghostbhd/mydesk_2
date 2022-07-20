@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/06 23:06:23 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/06 23:07:26 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int		ft_lstsize(t_list *lst);
 void	ft_cmdadd(t_cmd **lst, t_cmd *new);
 t_cmd	*ft_cmdnew(char *content);
 int		ft_cmdsize(t_cmd *lst);
+t_cmd	*ft_cmdlast(t_cmd *lst);
 //List > env
 void	ft_envadd_back(t_env **lst, t_env *new);
 t_env	*ft_envlast(t_env *lst);
@@ -97,8 +98,6 @@ int		get_cmd(char *line, int start, t_list **mini, t_env *envlst);
 int		get_file(char *line, int start, t_list **mini, char check);
 int		get_text(char *line, int start, t_list **mini, char check);
 void	ft_redi(char *line, int i, t_list **mini, char check);
-void	ft_cmdadd(t_cmd **lst, t_cmd *new);
-t_cmd	*ft_cmdlast(t_cmd *lst);
 
 //Utils functions
 void	ft_error(char *msg);

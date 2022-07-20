@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/06 23:02:48 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/20 23:54:19 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,3 +108,6 @@ int	ft_dollar(char *line, int start, t_list **mini, t_env *envlst)
 			get_evalue(0, ft_substr(line, start + 1, i - start - 1), mini, envlst);
 	}
 }
+
+
+//line = ft_strjoin(ft_getdollarvalue("$test"), line + i);
