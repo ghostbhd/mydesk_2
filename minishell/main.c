@@ -6,44 +6,34 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/06 22:59:31 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/21 19:18:46 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main(int ac, char **av, char **env)
+int	main(void)
 {
-	char	*line = "  cat Makefile | grep \"util\" <infile";
+	char	*line;
 	t_list	*mini;
 	t_env	*envlst;
+	t_list	*tmp;
+	t_cmd	*ctmp;
 
-	
-	mini = ft_lstnew(PIPE, 0);
-	mini->cmd = ft_cmdnew("hellooooooo");
-	ft_cmdadd(&mini->cmd, ft_cmdnew("bro"));
-	ft_cmdadd(&mini->cmd, ft_cmdnew(ft_strdup("how are you ?")));
-	mini->token = ERROR;
-
-	ft_lstadd(&mini, ft_lstnew(RED_IN, 0));
-	ft_cmdadd(&mini->cmd, ft_cmdnew("mini"));
-	ft_cmdadd(&mini->cmd, ft_cmdnew("second"));
-	printf("Token: %d\n", mini->token);
-	printf("List size: %d\n", ft_cmdsize(mini->cmd));
-	while (mini->cmd)
+	envlst = NULL;
+	line = ft_strdup("  cat Makefile | wc -la");
+	parsser(line, &mini, envlst);
+	tmp = mini;
+	while (tmp)
 	{
-		printf("%s\n", mini->cmd->content);
-		mini->cmd = mini->cmd->next;
+		printf("%d ", tmp->token);
+		ctmp = tmp->cmd;
+		while (ctmp)
+		{
+			printf("%s ", ctmp->content);
+			ctmp = ctmp->next;
+		}
+		tmp = tmp->next;
 	}
-	
-	mini = mini->next;
-	printf("Token: %d\n", mini->token);
-	while (mini->cmd)
-	{
-		printf("%s\n", mini->cmd->content);
-		mini->cmd = mini->cmd->next;
-	}
-	
-
 	return (0);
 }

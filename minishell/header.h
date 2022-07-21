@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/06 23:07:26 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/21 19:20:09 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,7 @@ void	ft_redi(char *line, int i, t_list **mini, char check);
 //Utils functions
 void	ft_error(char *msg);
 
+//Main functions
+void	parsser(char *line, t_list **mini, t_env *envlst);
 
 #endif

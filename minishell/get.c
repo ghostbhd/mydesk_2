@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/20 22:58:57 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/21 19:09:09 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	get_text(char *line, int start, t_list **mini, char check)
 		return (i + 1);
     }
 	else
-		ft_error("bash: syntax error");
+		(*mini)->token = ERROR;
+	return (i);
 }
 
 //get file -----------------------------------------------------------
@@ -62,7 +63,8 @@ int	get_file(char *line, int start, t_list **mini, char check)
 		start = i;
 		while (!is_separate(line[i]) && !is_white_space(line[i]) && line[i])
 			i++;
-		ft_lstlast(*mini)->cmd = ft_substr(line, start, i - start);
+		//ft_lstlast(*mini)->cmd = ft_substr(line, start, i - start);
+		ft_cmdadd(&ft_lstlast(*mini)->cmd , ft_cmdnew(ft_substr(line, start, i - start)));
 	}
 	else if (line[i] == '\'' || line[i] == '"')
 		i = get_text(line, i, mini, line[i]);
@@ -76,6 +78,7 @@ int get_cmd(char *line, int start, t_list **mini, t_env *envlst)
 {
 	char	check;
 
+	(void) envlst;
 	check = line[start];
 	if (check == '|')
 	{

@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/20 23:54:19 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/21 19:02:57 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	fill_env(t_env **envlst, char **env)
 {
 	int		i;
 	int		j;
-	char	**split;
 	
 	i = 0;
 	while (env[i])
@@ -47,7 +46,7 @@ int	add_cmd(char *line, t_list **mini, int start)
 	while (!is_white_space(line[i]) && !is_separate(line[i]) && line[i])
 		i++;
 	if (ft_lstlast(*mini)->token == CMD)
-		ft_cmdadd((*mini)->cmd, ft_cmdnew(ft_substr(line, j, i - j)));
+		ft_cmdadd(&(*mini)->cmd, ft_cmdnew(ft_substr(line, j, i - j)));
 	else
 		ft_lstadd(mini, ft_lstnew(CMD, ft_cmdnew(ft_substr(line, j, i - j))));
 	return (i);
@@ -71,7 +70,6 @@ void	parsser(char *line, t_list **mini, t_env *envlst)
 
 void	get_evalue(int choix, char *key, t_list **mini, t_env *envlst)
 {
-	int		i;
 	t_env	*tmp;
 
 	tmp = envlst;
@@ -92,10 +90,10 @@ int	ft_dollar(char *line, int start, t_list **mini, t_env *envlst)
 {
 	int	i;
 
-	i == start + 1;
+	i = start + 1;
 	if (ft_isalpha(line[i]) || line[i] == '_')
 	{
-		while ((ft_isalnum(line[i]) || line[i]) == '_' && line[i])
+		while ((ft_isalnum(line[i]) || line[i] == '_') && line[i])
 			i++;
 		if (!is_white_space(line[i]) && !is_separate(line[i]) && line[i])
 		{
@@ -107,6 +105,7 @@ int	ft_dollar(char *line, int start, t_list **mini, t_env *envlst)
 		else
 			get_evalue(0, ft_substr(line, start + 1, i - start - 1), mini, envlst);
 	}
+	return (i);
 }
 
 
