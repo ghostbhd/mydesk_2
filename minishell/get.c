@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/23 03:55:04 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/23 19:22:06 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	get_file(char *line, int start, t_list **mini, char check)
 	ft_redi(line, i, mini, check);
 	while (is_white_space(line[i]) && line[i])
 		i++;
-	if (!is_separate(line[i]) && line[i])
+	if (!is_separate(line[i]))
 	{
 		start = i;
 		while (!is_separate(line[i]) && !is_white_space(line[i]) && line[i])
@@ -80,7 +80,7 @@ int get_cmd(char *line, int start, t_list **mini, t_env *envlst)
 
 	(void) envlst;
 	check = line[start];
-	// printf("hola\n");
+	// printf("hola22\n");
 	if (check == '|')
 	{
 		ft_lstadd(mini, ft_lstnew(PIPE, ft_cmdnew(ft_strdup("|"))));

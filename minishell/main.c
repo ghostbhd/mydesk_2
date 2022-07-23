@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/23 03:54:36 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/23 19:16:09 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int ac, char **av, char **env)
 	parsser(line, &mini, envlst);
 	tmp = mini;
 	while (tmp)
-	{
+	{ 
 		printf("%d ", tmp->token);
 		ctmp = tmp->cmd;
 		while (ctmp)

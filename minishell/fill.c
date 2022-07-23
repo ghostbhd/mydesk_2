@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/23 03:54:15 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/23 19:24:00 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	add_cmd(char *line, t_list **mini, int start)
 
 	i = start;
 	j = start;
+	// printf("hoola\n");
 	while (!is_white_space(line[i]) && !is_separate(line[i]) && line[i])
 		i++;
 	if (ft_lstlast(*mini)->token == CMD)
@@ -59,12 +60,14 @@ void	parsser(char *line, t_list **mini, t_env *envlst)
 	i = 0;
 	while (line[i])
 	{
-		while (is_white_space(line[i]) && line[i])
+		while (is_white_space(line[i]))
 			i++;
-		if (!is_separate(line[i]) && line[i])
-			i = add_cmd(line, mini, i);
-		else
+		printf("%d\n", is_separate(line[i]));
+		break ;
+		if (is_separate(line[i]))
 			i = get_cmd(line, i, mini, envlst);
+		else
+			i = add_cmd(line, mini, i);
 		list_print(*mini);
 	}
 }
