@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/21 19:09:09 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/23 03:55:04 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int get_cmd(char *line, int start, t_list **mini, t_env *envlst)
 
 	(void) envlst;
 	check = line[start];
+	// printf("hola\n");
 	if (check == '|')
 	{
 		ft_lstadd(mini, ft_lstnew(PIPE, ft_cmdnew(ft_strdup("|"))));

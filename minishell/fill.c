@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/21 19:02:57 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/23 03:54:15 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,11 @@ void	parsser(char *line, t_list **mini, t_env *envlst)
 	{
 		while (is_white_space(line[i]) && line[i])
 			i++;
-		if (is_separate(line[i]))
-			i = get_cmd(line, i, mini, envlst);
-		else if (line[i])
+		if (!is_separate(line[i]) && line[i])
 			i = add_cmd(line, mini, i);
+		else
+			i = get_cmd(line, i, mini, envlst);
+		list_print(*mini);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/21 19:20:09 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/23 03:53:59 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,9 @@ void	ft_error(char *msg);
 
 //Main functions
 void	parsser(char *line, t_list **mini, t_env *envlst);
+void	fill_env(t_env **envlst, char **env);
+
+//--> just test
+void	list_print(t_list *mini);
 
 #endif
