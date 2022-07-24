@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/23 21:05:47 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/23 23:11:54 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	list_print(t_list *mini)
 	tmp = mini;
 	while (tmp)
 	{
-		printf("\n%s ", ft_tok(tmp->token));
+		printf("\n==> %9s   ", ft_tok(tmp->token));
 		cmd = tmp->cmd;
 		while (cmd)
 		{
@@ -54,16 +54,26 @@ int	main(int ac, char **av, char **env)
 	char	*line;
 	t_list	*mini;
 	t_env	*envlst;
-	t_list	*tmp;
 
 	(void) ac;
 	(void) av;
 	fill_env(&envlst, env);
-	line = ft_strdup("cat Makefile | wc -la");
+	line = ft_strdup(">  how  cat <Makefile >hola >>lim | wc -la '-a'");
 	printf("%s\n", line);
 	mini = malloc(sizeof(t_list));
 	parsser(line, &mini, envlst);
-	tmp = mini;
+	printf("\n--------------------------\n");
 	list_print(mini);
 	return (0);
 }
+
+//	line = ft_strdup(">  how  cat <Makefile >hola >>lim | wc -la '-a'");
+
+//	==>       CMD	
+//	==>   RED_OUT	how 
+//	==>       CMD	cat 
+//	==>    RED_IN	Makefile 
+//	==>   RED_OUT	hola 
+//	==>    APPEND	lim 
+//	==>      PIPE	| 
+//	==>       CMD	wc -la -a % 

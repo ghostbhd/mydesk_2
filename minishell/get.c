@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/23 19:22:06 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/23 23:02:53 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	get_text(char *line, int start, t_list **mini, char check)
 		i++;
 	if (line[i] == check)
     {
-		ft_cmdadd(&(*mini)->cmd, ft_cmdnew(ft_substr(line, start, i)));
+		ft_cmdadd(&ft_lstlast(*mini)->cmd, ft_cmdnew(ft_substr(line, start, i - start)));
 		return (i + 1);
     }
 	else
