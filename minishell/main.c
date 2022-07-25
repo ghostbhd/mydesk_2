@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/23 23:11:54 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/25 01:07:04 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int ac, char **av, char **env)
 	(void) ac;
 	(void) av;
 	fill_env(&envlst, env);
-	line = ft_strdup(">  how  cat <Makefile >hola >>lim | wc -la '-a'");
+	line = ft_strdup(">  how  cat <Makefile >hola >>lim | wc -l");
 	printf("%s\n", line);
 	mini = malloc(sizeof(t_list));
 	parsser(line, &mini, envlst);
