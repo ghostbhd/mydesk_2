@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/31 03:23:10 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/31 20:12:01 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ void	fill_env(t_env **envlst, char **env)
 		{
 			if (env[i][j] == '=')
 			{
-				ft_envadd_back(envlst, ft_envnew(ft_substr\
-				(env[i], 0, j), ft_strdup(env[i] + j + 1)));
+				ft_envadd_back(envlst, ft_envnew(ft_substr(env[i], 0, j), ft_strdup(env[i] + j + 1)));
 				break ;
 			}
 			j++;
@@ -43,12 +42,19 @@ int	add_cmd(char *line, t_list **mini, int start)
 
 	i = start;
 	j = start;
+	printf("add_cmd\n");
 	while (!is_white_space(line[i]) && !is_separate(line[i]) && line[i])
 		i++;
 	if (ft_lstlast(*mini)->token == CMD)
+	{
 		ft_cmdadd(&ft_lstlast(*mini)->cmd, ft_cmdnew(ft_substr(line, j, i - j)));
+	}
 	else
+	{
+		printf("end add_cmd\n");
 		ft_lstadd(mini, ft_lstnew(CMD, ft_cmdnew(ft_substr(line, j, i - j))));
+		
+	}
 	return (i);
 }
 
@@ -65,8 +71,6 @@ void	parsser(char *line, t_list **mini, t_env *envlst)
 			i = get_cmd(line, i, mini, envlst);
 		else
 			i = add_cmd(line, mini, i);
-		
-		// printf("done ; \n");//test
 	}
 }
 

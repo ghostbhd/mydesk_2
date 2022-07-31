@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/31 03:26:55 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/31 20:10:35 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,19 @@ int	main(int ac, char **av, char **env)
 
 	(void) ac;
 	(void) av;
-	fill_env(&envlst, env);
-	//line = ft_strdup("  | how");
+	(void) env;
+	mini = NULL;
+	envlst = NULL;
+	//fill_env(&envlst, env);
 	while (1)
 	{
-		mini = malloc(sizeof(t_list));
-		if (!mini)
-			printf("Malloc error !!\n");
-		else
-		{
-			line = readline("\n mini $> ");
-			printf("command : %s\n", line);
-			parsser(line, &mini, envlst);
-			printf("\n--------------------------\n");
-			list_print(mini);
-			ft_lstclear(&mini);
-			free(line);
-		}
+		line = readline("\n mini $> ");
+		// printf("command : %s\n", line);
+		parsser(line, &mini, envlst);
+		// printf("\n--------------------------\n");
+		list_print(mini);
+		ft_lstclear(&mini);
+		// free(line);
 	}
 	return (0);
 }
@@ -81,10 +77,10 @@ int	main(int ac, char **av, char **env)
 //	line = ft_strdup(">  how  cat <Makefile >hola >>lim | wc -la '-a'");
 
 //	==>       CMD	
-//	==>   RED_OUT	how 
-//	==>       CMD	cat 
-//	==>    RED_IN	Makefile 
-//	==>   RED_OUT	hola 
-//	==>    APPEND	lim 
-//	==>      PIPE	| 
-//	==>       CMD	wc -la -a % 
+//	==>   RED_OUT	how
+//	==>       CMD	cat
+//	==>    RED_IN	Makefile
+//	==>   RED_OUT	hola
+//	==>    APPEND	lim
+//	==>      PIPE	|
+//	==>       CMD	wc -la -a %

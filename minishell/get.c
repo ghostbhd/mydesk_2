@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/31 03:22:21 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/31 22:00:23 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	get_text(char *line, int start, t_list **mini, char check)
 
 void	ft_redi(char *line, int i, t_list **mini, char check)
 {
-	if (line[i - 1] == check && line[i - 2] == check)
+	if (i > 1 && line[i - 1] == check && line[i - 2] == check)
 	{
 		if (check == '<')
 			ft_lstadd(mini, ft_lstnew(HERD, 0));
