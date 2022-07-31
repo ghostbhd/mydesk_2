@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/23 03:53:59 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/30 23:57:29 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <readline/readline.h>
+# include <readline/history.h>
 
 enum title
 {
@@ -77,6 +79,7 @@ void	ft_lstadd(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int token, t_cmd *cmd);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
+void	ft_lstclear(t_list **lst);
 //List > cmd ______
 void	ft_cmdadd(t_cmd **lst, t_cmd *new);
 t_cmd	*ft_cmdnew(char *content);

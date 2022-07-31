@@ -2,7 +2,7 @@ SRCS =	*.c src/*.c
 
 CC = @cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -L/usr/local/lib -I/usr/local/include -lreadline
 
 RM = @rm -rf
 

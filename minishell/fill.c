@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/25 01:03:38 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/07/31 03:23:10 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	fill_env(t_env **envlst, char **env)
 {
 	int		i;
 	int		j;
-	
+
 	i = 0;
 	while (env[i])
 	{
@@ -43,7 +43,6 @@ int	add_cmd(char *line, t_list **mini, int start)
 
 	i = start;
 	j = start;
-	printf("I'm here\n");
 	while (!is_white_space(line[i]) && !is_separate(line[i]) && line[i])
 		i++;
 	if (ft_lstlast(*mini)->token == CMD)
@@ -66,6 +65,8 @@ void	parsser(char *line, t_list **mini, t_env *envlst)
 			i = get_cmd(line, i, mini, envlst);
 		else
 			i = add_cmd(line, mini, i);
+		
+		// printf("done ; \n");//test
 	}
 }
 
