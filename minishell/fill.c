@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/31 20:12:01 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/01 12:51:27 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	add_cmd(char *line, t_list **mini, int start)
 	printf("add_cmd\n");
 	while (!is_white_space(line[i]) && !is_separate(line[i]) && line[i])
 		i++;
-	if (ft_lstlast(*mini)->token == CMD)
+	if (ft_lstlast(*mini) != NULL && ft_lstlast(*mini)->token == CMD)
 	{
 		ft_cmdadd(&ft_lstlast(*mini)->cmd, ft_cmdnew(ft_substr(line, j, i - j)));
 	}

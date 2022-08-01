@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/30 23:57:29 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/01 13:05:35 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,18 @@ typedef struct s_tree
 	struct s_tree	*left;
 	struct s_tree	*right;
 }t_tree;
+
+typedef struct s_data
+{
+	char			**cmd;
+	char			**infile;
+	char			**outfile;
+	char			**append;
+	char			**herd;
+	int				error;
+	struct s_data	*next;
+}t_data;
+
 
 //src ------------------------------------------------------------------
 char	*ft_substr(char const *s, unsigned int start, size_t len);
