@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/31 22:00:23 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:58:52 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@
 int	get_text(char *line, int start, t_list **mini, char check)
 {
 	int	i;
-	
+
 	i = start;
 	while (line[i] != check && line[i])
 		i++;
 	if (line[i] == check)
-    {
-		ft_cmdadd(&ft_lstlast(*mini)->cmd, ft_cmdnew(ft_substr(line, start, i - start)));
+	{
+		ft_cmdadd(&ft_lstlast(*mini)->cmd, ft_cmdnew(\
+		ft_substr(line, start, i - start)));
 		return (i + 1);
-    }
+	}
 	else
 		(*mini)->token = ERROR;
 	return (i);
@@ -63,8 +64,8 @@ int	get_file(char *line, int start, t_list **mini, char check)
 		start = i;
 		while (!is_separate(line[i]) && !is_white_space(line[i]) && line[i])
 			i++;
-		//ft_lstlast(*mini)->cmd = ft_substr(line, start, i - start);
-		ft_cmdadd(&ft_lstlast(*mini)->cmd , ft_cmdnew(ft_substr(line, start, i - start)));
+		ft_cmdadd(&ft_lstlast(*mini)->cmd, ft_cmdnew(\
+		ft_substr(line, start, i - start)));
 	}
 	else if (line[i] == '\'' || line[i] == '"')
 		i = get_text(line, i, mini, line[i]);
@@ -74,7 +75,8 @@ int	get_file(char *line, int start, t_list **mini, char check)
 }
 
 //get command ---------------------------------------------------------
-int get_cmd(char *line, int start, t_list **mini, t_env *envlst)
+
+int	get_cmd(char *line, int start, t_list **mini, t_env *envlst)
 {
 	char	check;
 

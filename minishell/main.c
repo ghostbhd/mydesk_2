@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/07/31 20:10:35 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:46:51 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ char	*ft_tok(int tok)
 	if (tok == 0)
 		return ("CMD");
 	else if (tok == 1)
-	 	return ("PIPE");
+		return ("PIPE");
 	else if (tok == 2)
-	 	return ("RED_IN");
+		return ("RED_IN");
 	else if (tok == 3)
-	 	return ("RED_OUT");
+		return ("RED_OUT");
 	else if (tok == 4)
-	 	return ("APPEND");
+		return ("APPEND");
 	else if (tok == 5)
-	 	return ("HERD");
+		return ("HERD");
 	else
 		return ("ERROR");
 }
@@ -54,22 +54,20 @@ int	main(int ac, char **av, char **env)
 	char	*line;
 	t_list	*mini;
 	t_env	*envlst;
+	t_data	*data;
 
 	(void) ac;
 	(void) av;
 	(void) env;
 	mini = NULL;
 	envlst = NULL;
-	//fill_env(&envlst, env);
+	fill_env(&envlst, env);
 	while (1)
 	{
 		line = readline("\n mini $> ");
-		// printf("command : %s\n", line);
-		parsser(line, &mini, envlst);
-		// printf("\n--------------------------\n");
+		parsser(line, &data, envlst);
 		list_print(mini);
 		ft_lstclear(&mini);
-		// free(line);
 	}
 	return (0);
 }

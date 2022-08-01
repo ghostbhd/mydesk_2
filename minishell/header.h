@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/01 13:05:35 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:59:57 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
-enum title
+enum e_title
 {
 	CMD,
 	PIPE,
@@ -34,7 +34,7 @@ typedef struct s_cmd
 {
 	char			*content;
 	struct s_cmd	*next;
-} t_cmd;
+}t_cmd;
 
 typedef struct s_list
 {
@@ -67,7 +67,6 @@ typedef struct s_data
 	int				error;
 	struct s_data	*next;
 }t_data;
-
 
 //src ------------------------------------------------------------------
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -102,6 +101,9 @@ void	ft_envadd_back(t_env **lst, t_env *new);
 t_env	*ft_envlast(t_env *lst);
 int		ft_envsize(t_env *lst);
 t_env	*ft_envnew(char *key, char *value);
+//List > data
+t_data	*ft_datalast(t_data *lst);
+t_data	*ft_datanew(void);
 //----------------------------------------------------------------------
 
 //is functions
@@ -118,8 +120,9 @@ void	ft_redi(char *line, int i, t_list **mini, char check);
 void	ft_error(char *msg);
 
 //Main functions
-void	parsser(char *line, t_list **mini, t_env *envlst);
+void	parsser(char *line, t_data **data, t_env *envlst);
 void	fill_env(t_env **envlst, char **env);
+void	ft_readlst(t_list *lst, t_data **data);
 
 //--> just test
 void	list_print(t_list *mini);
