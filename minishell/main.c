@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/01 15:46:51 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:05:57 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,18 @@ void	list_print(t_list *mini)
 int	main(int ac, char **av, char **env)
 {
 	char	*line;
-	t_list	*mini;
 	t_env	*envlst;
 	t_data	*data;
 
 	(void) ac;
 	(void) av;
 	(void) env;
-	mini = NULL;
 	envlst = NULL;
 	fill_env(&envlst, env);
 	while (1)
 	{
 		line = readline("\n mini $> ");
 		parsser(line, &data, envlst);
-		list_print(mini);
-		ft_lstclear(&mini);
 	}
 	return (0);
 }
