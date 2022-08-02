@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/01 17:06:01 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:29:59 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	parsser(char *line, t_data **data, t_env *envlst)
 	}
 	list_print(mini);
 	// ft_readlst(mini, data);
-	// ft_lstclear(&mini);
+	ft_lstclear(&mini);
 }
 
 void	get_evalue(int choix, char *key, t_list **mini, t_env *envlst)
