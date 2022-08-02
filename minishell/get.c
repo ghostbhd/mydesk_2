@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/02 17:12:09 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:25:49 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 
 int	is_redirect(t_list **mini)
 {
-	int	i;
-	
-	i = 0;
-	if (ft_lstlast(*mini) != 0)
-	{
-		
-	}
+	int		i;
+	char	*tmp;
+
+	i = ft_lstlast(*mini)->token;
+	tmp = ft_lstlast(*mini)->cmd->content;
+	if (tmp && (i == RED_IN || i == RED_OUT || i == HERD || i == APPEND))
+		return (1);
+	return (0);
 }
 
 int	get_text(char *line, int start, t_list **mini, char check)
@@ -34,7 +35,8 @@ int	get_text(char *line, int start, t_list **mini, char check)
 		i++;
 	if (line[i] == check)
 	{
-		if (ft_lstlast(*mini) == 0 || ft_lstlast(*mini)->token == PIPE)
+		if (ft_lstlast(*mini) == 0 || ft_lstlast(*mini)->token == PIPE \
+		|| is_redirect(mini))
 			ft_lstadd(mini, ft_lstnew(CMD, ft_cmdnew(\
 			ft_substr(line, start, i - start))));
 		else
