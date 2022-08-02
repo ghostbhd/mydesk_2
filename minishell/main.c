@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/01 17:05:57 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/02 15:09:13 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ int	main(int ac, char **av, char **env)
 	(void) ac;
 	(void) av;
 	(void) env;
-	envlst = NULL;
+	envlst = 0;
 	fill_env(&envlst, env);
 	while (1)
 	{
 		line = readline("\n mini $> ");
+		add_history(line);
 		parsser(line, &data, envlst);
 	}
 	return (0);

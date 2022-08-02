@@ -6,13 +6,25 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:38:01 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/01 15:58:52 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:12:09 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 //get text -----------------------------------------------------------
+
+int	is_redirect(t_list **mini)
+{
+	int	i;
+	
+	i = 0;
+	if (ft_lstlast(*mini) != 0)
+	{
+		
+	}
+}
+
 int	get_text(char *line, int start, t_list **mini, char check)
 {
 	int	i;
@@ -22,12 +34,21 @@ int	get_text(char *line, int start, t_list **mini, char check)
 		i++;
 	if (line[i] == check)
 	{
-		ft_cmdadd(&ft_lstlast(*mini)->cmd, ft_cmdnew(\
-		ft_substr(line, start, i - start)));
+		if (ft_lstlast(*mini) == 0 || ft_lstlast(*mini)->token == PIPE)
+			ft_lstadd(mini, ft_lstnew(CMD, ft_cmdnew(\
+			ft_substr(line, start, i - start))));
+		else
+			ft_cmdadd(&ft_lstlast(*mini)->cmd, ft_cmdnew(\
+			ft_substr(line, start, i - start)));
 		return (i + 1);
 	}
 	else
-		(*mini)->token = ERROR;
+	{
+		if (ft_lstlast(*mini) == 0 || ft_lstlast(*mini)->token == PIPE)
+			ft_lstadd(mini, ft_lstnew(ERROR, ft_cmdnew(ft_strdup(""))));
+		else
+			ft_lstlast(*mini)->token = ERROR;
+	}
 	return (i);
 }
 
@@ -67,10 +88,13 @@ int	get_file(char *line, int start, t_list **mini, char check)
 		ft_cmdadd(&ft_lstlast(*mini)->cmd, ft_cmdnew(\
 		ft_substr(line, start, i - start)));
 	}
-	else if (line[i] == '\'' || line[i] == '"')
-		i = get_text(line, i, mini, line[i]);
 	else
-		ft_lstlast(*mini)->token = ERROR;
+	{
+		if (line[i] == '\'' || line[i] == '"')
+			i = get_text(line, i + 1, mini, line[i]);
+		else
+			ft_lstlast(*mini)->token = ERROR;
+	}
 	return (i);
 }
 
