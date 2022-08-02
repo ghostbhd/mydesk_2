@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:37:32 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/02 15:09:13 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:17:46 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,7 @@ int	main(int ac, char **av, char **env)
 	return (0);
 }
 
-//	line = ft_strdup(">  how  cat <Makefile >hola >>lim | wc -la '-a'");
-
-//	==>       CMD	
-//	==>   RED_OUT	how
-//	==>       CMD	cat
-//	==>    RED_IN	Makefile
-//	==>   RED_OUT	hola
-//	==>    APPEND	lim
-//	==>      PIPE	|
-//	==>       CMD	wc -la -a %
+// ---------- Note: ----------
+// dollar $
+// Herdoc
+// Redirections
