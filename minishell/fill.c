@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/02 17:29:59 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/03 02:07:09 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,57 @@ void	parsser(char *line, t_data **data, t_env *envlst)
 	ft_lstclear(&mini);
 }
 
-void	get_evalue(int choix, char *key, t_list **mini, t_env *envlst)
+char	*ft_key(t_env *envlst, char *key)
+{
+	t_env	*tmp;
+
+	tmp = envlst;
+	while (tmp)
+	{
+		if (!ft_strncmp(tmp->key, key, ft_strlen(tmp->key)))
+		{
+			free(key);
+			return (ft_strdup(tmp->value));
+		}
+		tmp = tmp->next;
+	}
+	return (ft_strdup(""));
+}
+
+char	*ft_d(char *line, int len, t_env *envlst)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	i = 0;
+	if (ft_strchr(line, '$'))
+	{
+		while (line[i])
+		{
+			if (line[i] == '$')
+			{
+				if (check_d(line[i + 1]))
+					i++;
+				else
+				{
+					str = ft_substr(line, 0, i);
+					j = i + 1;
+					while (j < len && (ft_isalnum(line[j]) || line[j] == '_'))
+						j++;
+					str = ft_strjoin(str, ft_key(envlst, ft_substr(line, i + 1, j - i - 1)));
+					str = ft_strjoin(str, ft_d(line + i, len - i, envlst));
+					return (str);
+				}
+			}
+			i++;
+		}
+	}
+	else
+		return (ft_substr(line, 0, len));
+}
+
+/* void	get_evalue(int choix, char *key, t_list **mini, t_env *envlst)
 {
 	t_env	*tmp;
 
@@ -90,7 +140,7 @@ void	get_evalue(int choix, char *key, t_list **mini, t_env *envlst)
 		tmp = tmp->next;
 	}
 	if (choix)
-		ft_cmdadd(&(*mini)->cmd, ft_cmdnew(ft_strdup("")));
+		ft_cmdadd(&ft_lstlast(*mini)->cmd, ft_cmdnew(ft_strdup("")));
 }
 
 int	ft_dollar(char *line, int start, t_list **mini, t_env *envlst)
@@ -115,4 +165,6 @@ int	ft_dollar(char *line, int start, t_list **mini, t_env *envlst)
 			mini, envlst);
 	}
 	return (i);
-}
+} */
+
+// echo hello$USER.com   hello  abouhmad .com 

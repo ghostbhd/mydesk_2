@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:43:27 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/02 17:23:42 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/03 01:41:05 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include "libft/libft.h"
 
 enum e_title
 {
@@ -68,21 +69,7 @@ typedef struct s_data
 	struct s_data	*next;
 }t_data;
 
-//src ------------------------------------------------------------------
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
-void	*ft_calloc(size_t count, size_t size);
-char	*ft_strrchr(const char *s, int c);
-char	**ft_split(char *str, char c);
-char	*ft_strndup(char *s1, int n);
-void	ft_bzero(void *s, size_t n);
-char	*ft_strdup(const char *s1);
-size_t	ft_strlen(const char *s);
-int		ft_atoi(const char *str);
-int		ft_isalpha(int c);
-int		ft_isalnum(int c);
+//src -----------------------------------------------------------------
 
 //List *****************
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -123,6 +110,9 @@ void	ft_error(char *msg);
 void	parsser(char *line, t_data **data, t_env *envlst);
 void	fill_env(t_env **envlst, char **env);
 // void	ft_readlst(t_list *lst, t_data **data);
+
+//dollor functions
+int	check_d(char c);
 
 //--> just test
 void	list_print(t_list *mini);
