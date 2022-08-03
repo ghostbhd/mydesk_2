@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:45:31 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/03 02:07:09 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/03 10:06:41 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,10 @@ char	*ft_d(char *line, int len, t_env *envlst)
 			if (line[i] == '$')
 			{
 				if (check_d(line[i + 1]))
-					i++;
+				{
+					str = ft_substr(line, 0, i);
+					str = ft_strjoin(str, ft_d(line + i + 1, len, envlst));
+				}
 				else
 				{
 					str = ft_substr(line, 0, i);
@@ -167,4 +170,5 @@ int	ft_dollar(char *line, int start, t_list **mini, t_env *envlst)
 	return (i);
 } */
 
-// echo hello$USER.com   hello  abouhmad .com 
+// echo hello$USER.com   hello  abouhmad .com
+// echo hello$.USER.com   hello  abouhmad .com 
