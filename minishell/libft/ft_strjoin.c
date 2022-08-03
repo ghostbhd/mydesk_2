@@ -6,7 +6,7 @@
 /*   By: abouhmad <abouhmad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 23:19:29 by abouhmad          #+#    #+#             */
-/*   Updated: 2022/08/03 10:12:09 by abouhmad         ###   ########.fr       */
+/*   Updated: 2022/08/03 10:23:28 by abouhmad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		lens2;
 	char	*p;
 
-	if (!s1 || !s2)
+	if (!s1 && s2)
+		return (ft_strdup(s2));
+	if (!s2 && s1)
+		return (ft_strdup(s1));
+	if (!s1 && !s2)
 		return (0);
 	lens1 = ft_strlen(s1);
 	lens2 = ft_strlen(s2);
